@@ -1,3 +1,23 @@
+<h1 align="center">Online Shoe store project</h1> 
+  
+---
+
+## 📝 Description
+Online shop project
+
+---
+
+## 🛠️ Tech Stack
+- React Vite
+- TypeScript
+- Redux Toolkit
+- CSS-Modules / SCSS , BEM
+- Axios + Fetch (Mockapi)
+- localStorage
+- Code Splitting, React Loadable, useWhyDidYouUpdate
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.

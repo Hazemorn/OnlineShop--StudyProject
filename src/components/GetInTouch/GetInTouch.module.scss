@@ -1,0 +1,37 @@
+@use '../../styles/mixins.scss' as *;
+
+.getInTouch {
+    &__wrapper {
+        background-color: var(--black);
+        border-radius: 20px;
+        @include flex-hybrid(space-between, center);
+        padding: 30px 64px;
+
+    }
+    &__title {
+        color: var(--white);
+    }
+    &__form {
+        @include flex-dir(column);
+        gap: 20px;
+        max-width: 400px;
+        width: 100%;
+        position: relative;
+        input {
+            background-color: var(--white);
+            border-radius: 14px;
+            padding: 10px 40px;
+            cursor: pointer;
+        }
+        img {
+            position: absolute;
+            z-index: 2;
+            pointer-events: none;
+            left: 10px;
+            top: 12px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+}

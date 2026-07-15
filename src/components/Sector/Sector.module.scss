@@ -1,0 +1,26 @@
+@use '../../styles/mixins.scss' as *;
+
+.sections {
+    padding: 70px 0;
+    &__wrapper {
+        @include flex-dir(column);
+        gap: 80px;
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+}
+
+@media screen   
+and (max-width: 768px) {
+    .sections {
+        &__wrapper {
+            gap: 40px;
+        }
+        &__top {
+            flex-direction: column;
+        }
+    }
+}

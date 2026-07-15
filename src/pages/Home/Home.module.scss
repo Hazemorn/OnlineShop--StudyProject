@@ -1,0 +1,38 @@
+@use '../../styles/mixins.scss' as *;
+
+.hero {
+    &__wrapper {
+        padding-top: 70px;
+        @include flex-hybrid(space-between, center);
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        max-width: 600px; 
+        p {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 0%;
+        }
+    
+    }
+    &__img {
+        background-color: var(--grey);
+        max-width: 600px;
+        height: auto;
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+.companies {
+    background-color: var(--black);
+    &__wrapper {
+        @include flex-hybrid(space-around, center);
+
+    }
+}
