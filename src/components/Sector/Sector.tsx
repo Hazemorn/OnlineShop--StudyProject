@@ -1,19 +1,18 @@
-import s from './Section.module.scss';
+import s from './Sector.module.scss';
 
 interface Sector {
     id?: string;
     title: string;
-    width?: string;
     body: React.ReactNode;
 }
 
 
-const Sector = ({ id,title, width = '700px', body}: Sector) => {
+const Sector = ({ id, title, body}: Sector) => {
     return (
          <>
         <section className={s.sections} id={id}>
             <div className={s.sections__wrapper}>
-                <div className={s.sections__top} style={{maxWidth: width}}>
+                <div className={s.sections__top}>
                     <h2>{title}</h2>
                 </div>
                 <div className={s.sections__body}>{body}</div>

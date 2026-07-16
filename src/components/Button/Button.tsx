@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const Button = ({ title, bgColor = 'var(--white)', max_width, color ='var(--black)', onClick }: ButtonProps) => {
   return (
-    <button onClick={onClick} className={s.button__template} style={{ backgroundColor: bgColor, maxWidth:max_width, color: color }}>
+    <button onClick={onClick} className={s.button__template} style={{ backgroundColor: bgColor, maxWidth:max_width, borderColor: color, color: color }}>
       {title}
     </button>
   );

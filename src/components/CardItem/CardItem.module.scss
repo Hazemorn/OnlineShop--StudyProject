@@ -1,0 +1,16 @@
+@use '../../styles/mixins.scss' as *;
+
+.cardItem {
+    max-width: 295px;
+    &__text {
+        @include flex-hybrid(none, start);
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__img {
+        background-color: var(--grey);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+}

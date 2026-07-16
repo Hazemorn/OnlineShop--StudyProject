@@ -2,25 +2,14 @@
 
 .sections {
     padding: 70px 0;
+   
     &__wrapper {
         @include flex-dir(column);
-        gap: 80px;
+        gap: clamp(50px, 18vh, 80px);
     }
-    &__top {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-    }
+     &__top {
+        @include flex-hybrid(center, center);
+
+     }
 }
 
-@media screen   
-and (max-width: 768px) {
-    .sections {
-        &__wrapper {
-            gap: 40px;
-        }
-        &__top {
-            flex-direction: column;
-        }
-    }
-}

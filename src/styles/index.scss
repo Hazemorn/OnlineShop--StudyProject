@@ -2,6 +2,7 @@
 
 :root {
    --accent: rgb(253, 139, 146);
+   --greyDark: rgb(108, 108, 108);
    --grey: rgb(228, 228, 228);
    --greyLite: rgb(240, 240, 240);
    --black:rgba(0, 0, 0, 1);
@@ -48,7 +49,7 @@ h3 {
 }
 
 h4 {
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(16px, 3vw, 20px);
   line-height: 100%;
   font-weight: 500;
   letter-spacing: 0%;
@@ -60,6 +61,7 @@ p {
   line-height: 100%;
   font-weight: 400;
   letter-spacing: 0%;
+  color:var(--greyDark);
 }
 
 a {

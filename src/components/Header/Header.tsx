@@ -31,10 +31,9 @@ const Header = () => {
                 <NavLink to={"/contact"}>
                     Contact Us
                 </NavLink>
-                <NavLink to={{
-                    pathname: "/",
-                    hash: "reviews"
-                }}>Reviews</NavLink>
+                <NavLink to={
+                    "/#reviews"
+                }>Reviews</NavLink>
             </div>
             <div className={s.header__trolley}>
                 <NavLink to={"/cart"}>

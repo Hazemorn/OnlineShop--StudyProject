@@ -1,0 +1,11 @@
+.cardReview {
+    max-width: 400px;
+    border: 1px solid var(--grey);
+    border-radius: 25px;
+    &__name {
+        margin-bottom: 20px;
+    }
+    &__wrapper {
+        padding: 20px;
+    }
+}
