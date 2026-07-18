@@ -68,7 +68,7 @@ export const CUSTOMERS: Customer[] = [
 
 interface Good {
   id: number;
-  src: string;
+  imageUrl: string;
   title: string;
   //rate: number;//will be added
   price: number;
@@ -78,7 +78,7 @@ interface Good {
 export const GOODS: Good[] = [
   {
     id: 1,
-    src: shoe1Img,
+    imageUrl: shoe1Img,
     title: "Formal shoe",
     //rate: 4.8,
     price: 150,
@@ -86,7 +86,7 @@ export const GOODS: Good[] = [
   },
   {
     id: 2,
-    src: shoe2Img,
+    imageUrl: shoe2Img,
     title: "Sneakers shoe",
     //rate: 5,
     price: 250,
@@ -94,7 +94,7 @@ export const GOODS: Good[] = [
   },
   {
     id: 3,
-    src: shoe3Img,
+    imageUrl: shoe3Img,
     title: "Sneakers S.",
     //rate: 4.7,
     price: 100,
@@ -102,10 +102,146 @@ export const GOODS: Good[] = [
   },
   {
     id: 4,
-    src: shoe4Img,
+    imageUrl: shoe4Img,
     title: "Le Sneakers",
     //rate: 5,
     price: 120,
     //discount: 0 
   }
+]
+
+interface Size {
+  id: number;
+  size: number;
+  available: boolean;
+}
+
+export const SIZES: Size[] = [
+  {
+    id: 1,
+    size: 36,
+    available: false,
+  },
+  {
+    id: 2,
+    size: 37,
+    available: true,
+  },
+  {
+    id: 3,
+    size: 38,
+    available: true,
+  },
+  {
+    id: 4,
+    size: 39,
+    available: true,
+  },
+  {
+    id: 5,
+    size: 40,
+    available: true,
+  },
+  {
+    id: 6,
+    size: 41,
+    available: true,
+  },
+  {
+    id: 7,
+    size: 42,
+    available: true,
+  },
+  {
+    id: 8,
+    size: 43,
+    available: true,
+  },
+  {
+    id: 9,
+    size: 44,
+    available: true,
+  },
+  {
+    id: 10,
+    size: 45,
+    available: false,
+  }
+
+]
+
+interface Colour {
+  id: number;
+  colour: string;
+  available: boolean;
+}
+
+export const COLOURS: Colour[] = [
+  {
+    id: 1,
+    colour: 'var(--white)',
+    available: false,
+  },
+  {
+    id: 2,
+    colour: 'var(--black)',
+    available: true,
+  },
+  {
+    id: 3,
+    colour: 'var(--beige)',
+    available: true,
+  },
+  {
+    id: 4,
+    colour: 'var(--brown)',
+    available: true,
+  },
+  {
+    id: 5,
+    colour: 'var(--grey)',
+    available: true,
+  }
+]
+
+
+interface Option {
+  id: number;
+  name: string;
+  value: string;
+}
+
+export const OPTIONS: Option[] = [
+  {
+    id: 1,
+    name: 'Cheap first',
+    value: 'asc',
+  },
+  {
+    id: 2,
+    name: 'Expensive first',
+    value: 'desc',
+  }
+]
+
+
+interface Sex {
+  id: number;
+  name: string;
+}
+
+export const SEXES: Sex[] = [
+  {
+    id: 1,
+    name: 'both',
+  },
+  {
+    id: 2,
+    name: 'male',
+  },
+  {
+    id: 3,
+    name: 'female',
+  }
+
 ]

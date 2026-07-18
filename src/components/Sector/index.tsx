@@ -2,7 +2,7 @@ import s from './Sector.module.scss';
 
 interface Sector {
     id?: string;
-    title: string;
+    title?: string;
     body: React.ReactNode;
 }
 

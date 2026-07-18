@@ -8,6 +8,8 @@
    --black:rgba(0, 0, 0, 1);
    --white:rgba(255, 255, 255, 1);
    --placeholder: rgba(137, 137, 137, 1);
+   --beige:rgb(245, 245, 220);
+   --brown: rgb(65, 42, 42);
 }
 
 .container {
@@ -38,7 +40,6 @@ h2 {
   line-height: 100%;
   font-weight: 500;
   letter-spacing: 0%;
-  width: fit-content;
 }
 
 h3 {
@@ -53,7 +54,6 @@ h4 {
   line-height: 100%;
   font-weight: 500;
   letter-spacing: 0%;
-  width: fit-content;
 }
 
 p {

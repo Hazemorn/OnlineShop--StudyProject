@@ -1,6 +1,7 @@
 @use '../../styles/mixins.scss' as *;
 
 .getInTouch {
+    margin-bottom: 40px;
     &__wrapper {
         background-color: var(--black);
         border-radius: 20px;

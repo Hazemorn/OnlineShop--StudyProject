@@ -7,6 +7,9 @@ import Contact from "./pages/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Cart from "./components/Cart/Cart";
 import Product from "./pages/Product/Product";
+import TermsConditions from "./pages/TermsConditions/TermsConditions";
+import Privacy from "./pages/Privacy/Privacy";
+import NotFoundBlock from "./components/NotFoundBlock";
 
 function App() {
   const location = useLocation()
@@ -27,6 +30,9 @@ function App() {
           <Route path="contact" element={<Contact/>}/>
           <Route path="cart" element={<Cart/>}/>
           <Route path="product" element={<Product/>}/>
+          <Route path="privacy" element={<Privacy/>}/>
+          <Route path="terms&conditions" element={<TermsConditions/>}/>
+          <Route path="*" element={<NotFoundBlock/>}/>
         </Routes>
         <Footer/>
      </div>

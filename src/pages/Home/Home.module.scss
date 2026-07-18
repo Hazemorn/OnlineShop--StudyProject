@@ -2,7 +2,6 @@
 
 .hero {
     &__wrapper {
-        padding-top: 70px;
         @include flex-hybrid(space-between, center);
     }
     &__text {
@@ -30,6 +29,7 @@
 }
 
 .companies {
+    margin-bottom: 40px;
     background-color: var(--black);
     &__wrapper {
         @include flex-hybrid(space-around, center);

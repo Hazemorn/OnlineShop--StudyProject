@@ -14,9 +14,14 @@ Online shop project
 - CSS-Modules / SCSS , BEM
 - Axios + Fetch (Mockapi)
 - localStorage
-- Code Splitting, React Loadable, useWhyDidYouUpdate
 
 
+## ⏳ In Progress (Roadmap)
+
+- [ ] Add animation.
+- [ ] Mobile and tablet adaptive
+- [ ] Optimize and refactor CSS code for better maintainability.
+- [ ] Code Splitting, React Loadable, useWhyDidYouUpdate
 
 # React + TypeScript + Vite
 

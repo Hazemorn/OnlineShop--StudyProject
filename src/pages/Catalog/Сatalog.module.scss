@@ -1,0 +1,52 @@
+@use '../../styles/mixins.scss' as *;
+
+.catalog {
+    &__wrapper {
+       display: flex;
+       gap: 20px;
+    }
+   
+
+    &__sorting {
+        @include flex-hybrid(end, center);
+        gap: 20px;
+        cursor: pointer;
+        position: relative;
+        p {
+            padding: 10px;
+            border: 1px solid var(--black);
+            max-width: 120px;
+            border-radius: 15px;
+        }
+        ul {
+            position: absolute;
+            top:40px
+        }
+    }
+
+    &__goods {
+        width: 85%;
+        
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    @media (max-width: 1300px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    // display: flex;
+    // gap: 10px;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+}
