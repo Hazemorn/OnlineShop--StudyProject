@@ -4,15 +4,15 @@ import { useNavigate } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-import GetInTouch from "../../components/GetInTouch/GetInTouch";
-import Sector from "../../components/Sector/Sector";
+import GetInTouch from "../../components/GetInTouch";
+import Sector from "../../components/Sector";
 import Button from "../../components/Button/Button";
 
 import HeroImg from "../../assets/shoes/shoeHero.png";
 import ArrowLeftImg from "../../assets/icons/arrowLeft.svg";
 import ArrowRightImg from "../../assets/icons/arrowRight.svg";
 
-import { COMPANIES, GOODS, CUSTOMERS } from "../../store/homepageData";
+import { COMPANIES, GOODS, CUSTOMERS } from "../../store/contentData";
 import CardItem from "../../components/CardItem/CardItem";
 import CardReview from "../../components/CardReview/CardReview";
 
@@ -60,10 +60,11 @@ const Homepage = () => {
             <div className={s.topSelling__content}>
               {GOODS.map((item) => (
                 <CardItem
-                  key={item.id}
-                  title={item.title}
-                  src={item.src}
-                  price={item.price}
+                 {...item}
+                  // key={item.id}
+                  // title={item.title}
+                  // src={item.src}
+                  // price={item.price}
                 />
               ))}
             </div>

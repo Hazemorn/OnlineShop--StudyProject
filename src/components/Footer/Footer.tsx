@@ -43,8 +43,8 @@ const Footer = () => {
         </div>
         <div className={s.links_block}>
           <p className={s.title}>Help</p>
-          <NavLink to={"/"}>Privacy Policy</NavLink>
-          <NavLink to={"/"}>Terms & Conditions</NavLink>
+          <NavLink to={"/privacy"}>Privacy Policy</NavLink>
+          <NavLink to={"/terms&conditions"}>Terms & Conditions</NavLink>
         </div>
 
         <div className={s.footer__bottom}>

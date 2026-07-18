@@ -1,0 +1,102 @@
+@use '../../styles/mixins.scss' as *;
+
+.contact_us {
+    &__body {
+        @include flex-dir(row);
+        justify-content: space-between;
+        background-color: var(--grey);
+        border-radius: 45px;
+    }
+    &__text {
+        @include flex-dir(column);
+        padding: 60px 0 80px 100px;
+        gap: 40px;
+        width: 60%;
+        max-width: 560px;
+    }
+    &__type {
+        display: flex;
+        gap: 35px;
+        label {
+            display: flex;
+            gap: 15px;
+        }
+        input[type='radio'] {
+            appearance: none;         
+            -webkit-appearance: none;
+
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: 1px solid var(--black);
+            display: grid;
+            place-content: center;  
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+
+            &::before {
+                content: "";
+                width: 12px;         
+                height: 12px;
+                border-radius: 50%;
+                background-color: var(--accent);
+                transform: scale(0);  
+                transition: transform 0.2s ease-in-out;
+            }
+
+            &:checked {
+                &::before {
+                    transform: scale(1); 
+                }
+            }
+        }
+    }
+
+    &__data {
+        @include flex-dir(column);
+        gap: 25px;
+        label {
+            @include flex-dir(column);
+            gap: 5px;
+        }
+        input, textarea {
+            padding: 18px 30px;
+            border-radius: 14px;
+            max-width: 520px;
+            border: 1px solid var(--black);
+            background-color: var(--white);
+            width: 100%;  
+            box-sizing: border-box;
+        }
+    }
+    &__textarea_message {
+        resize: none;
+        overflow-y: auto;
+    }
+    
+    &__img {
+        @include flex-hybrid(none, center);
+        width: 50%;
+    }
+
+   
+}
+
+@media screen  
+and (max-width: 768px) {
+    .contact_us{
+        &__body {
+            @include flex-hybrid(center, center);
+            width: 100%;
+        }
+        &__img {
+        display: none;
+        }
+        &__text {
+        
+            width: 100%;
+            padding: 40px 30px;
+        }
+    }
+}

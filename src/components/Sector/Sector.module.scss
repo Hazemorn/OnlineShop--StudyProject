@@ -1,11 +1,11 @@
 @use '../../styles/mixins.scss' as *;
 
 .sections {
-    padding: 70px 0;
+    padding-bottom: 70px;
    
     &__wrapper {
         @include flex-dir(column);
-        gap: clamp(50px, 18vh, 80px);
+        gap: clamp(40px, 18vh, 60px);
     }
      &__top {
         @include flex-hybrid(center, center);

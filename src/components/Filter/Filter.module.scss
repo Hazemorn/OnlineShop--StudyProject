@@ -1,0 +1,54 @@
+@use '../../styles/mixins.scss' as *;
+.filter {
+    border: 1px solid var(--grey);
+    width: 15%;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    @include flex-dir(column);
+    gap:15px;
+    &__header {
+        @include flex-hybrid(space-between, center);
+    }
+    &__price, &__size, &__color, &__sex {
+        h4 {
+            margin-bottom: 10px;
+        }
+    }    
+}
+.selector {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    li {
+        padding: 5px;
+        border: 1px solid var(--grey);
+        border-radius: 50%;
+        width: 40px; 
+        height: 40px;
+        cursor: pointer;
+        @include flex-hybrid(center, center);
+        &.active {
+            border: 3px solid var(--black); 
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); 
+        }
+    }
+}
+.selectorSex {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    li {
+        padding: 5px;
+        border: 1px solid var(--grey);
+        border-radius: 50%;
+        width: 70px; 
+        height: 40px;
+        cursor: pointer;
+        @include flex-hybrid(center, center);
+        &.active {
+            border: 3px solid var(--black); 
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); 
+        }
+    }
+}
