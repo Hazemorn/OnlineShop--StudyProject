@@ -11,6 +11,7 @@ import type { Item } from "../../types/types";
 
 import SearchField from "../../components/SearchField";
 import Filter from "../../components/Filter";
+import PaginationApp from "../../components/PaginationApp";
 
 const Catalog = () => {
   const [sort, setSort] = useState<string>("");
@@ -18,7 +19,7 @@ const Catalog = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchValue, setSearchValue] = useState<string>("");
-
+  const [page, setPage] = useState<number>(1);
   //   const filteredGoods = useMemo(() => {
   //     return GOODS.filter((item) => {
   //       return item.price >= priceRange[0] && item.price <= priceRange[1];
@@ -28,8 +29,9 @@ const Catalog = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://6a5374948547b9f7111b8429.mockapi.io/api/products/items${
-        sort !== "" ? `?sortBy=price&order=${sort}` : ""}${searchValue !== '' ? `?search=${searchValue}`: ''}
+      `https://6a5374948547b9f7111b8429.mockapi.io/api/products/items?page=${page}&limit=8&${
+        sort !== "" ? `?sortBy=price&order=${sort}` : ""
+      }${searchValue !== "" ? `?search=${searchValue}` : ""}
       `
     )
       .then((res) => {
@@ -45,7 +47,7 @@ const Catalog = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [sort, searchValue]);
+  }, [sort, page]);
 
   function find(v) {
     setSearchValue(v);
@@ -80,18 +82,19 @@ const Catalog = () => {
           <Sector
             body={
               <div className={s.content}>
-                {
-                  isLoading
-                    ? [...new Array(8)].map((_, index) => (
-                        <Skeleton key={index} />
-                      ))
-                    :  //findShoes 
-                    items.map((item) => (
-                      <CardItem key={item.id} {...item} />
-                  ))
-                }
+                {isLoading
+                  ? [...new Array(8)].map((_, index) => (
+                      <Skeleton key={index} />
+                    ))
+                  : //findShoes
+                    items.map((item) => <CardItem key={item.id} {...item} />)}
               </div>
             }
+          />
+          <PaginationApp
+            currentPage={page}
+            onChangePage={(p) => setPage(p)}
+            pageCount={2}
           />
         </div>
       </div>
