@@ -12,7 +12,7 @@ import HeroImg from "../../assets/shoes/shoeHero.png";
 import ArrowLeftImg from "../../assets/icons/arrowLeft.svg";
 import ArrowRightImg from "../../assets/icons/arrowRight.svg";
 
-import { COMPANIES, GOODS, CUSTOMERS } from "../../store/contentData";
+import { COMPANIES, GOODS, CUSTOMERS } from "../../services/contentData";
 import CardItem from "../../components/CardItem/CardItem";
 import CardReview from "../../components/CardReview/CardReview";
 

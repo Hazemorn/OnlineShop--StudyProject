@@ -4,11 +4,6 @@ import EbayImg from '../assets/brands/amazon.svg';
 import LacosteImg from '../assets/brands/lacoste.svg';
 import LevisImg from '../assets/brands/levis.svg';
 
-import shoe1Img from '../assets/data/shoe1.png';
-import shoe2Img from '../assets/data/shoe2.png';
-import shoe3Img from '../assets/data/shoe3.png';
-import shoe4Img from '../assets/data/shoe4.png';
-
 interface Company {
     id: number;
     name: string;
@@ -77,36 +72,47 @@ interface Good {
 
 export const GOODS: Good[] = [
   {
-    id: 1,
-    imageUrl: shoe1Img,
-    title: "Formal shoe",
-    //rate: 4.8,
-    price: 150,
-    //discount: 0
+    "id": 1,
+    "title": "Sneakers Black Edition",
+    "price": 100,
+    //"size": [38, 39, 40, 41, 42, 43, 44, 45],
+    //"rate": 4.8,
+   // "sex": "male",
+    //"color": "black",
+    "imageUrl": "https://air-shop.by/image/cache/catalog/IMG38206111zon-1774711417-1000x1000.png"
+  
   },
   {
-    id: 2,
-    imageUrl: shoe2Img,
-    title: "Sneakers shoe",
-    //rate: 5,
-    price: 250,
-    //discount: 0
+    "id": 2,
+    "title": "Nike Air Max 270",
+    "price": 150,
+    // "size": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    // "rate": 5,
+    // "sex": "male",
+    // "color": "grey",
+    "imageUrl": "https://slamdunk.shop/wp-content/uploads/2025/09/air-max-270-futura-ao1569-004.webp"
   },
   {
-    id: 3,
-    imageUrl: shoe3Img,
-    title: "Sneakers S.",
-    //rate: 4.7,
-    price: 100,
-    //discount: 0
+    "id": 3,
+    "title": "Nike Air Max 277",
+    "price": 190,
+    // "size": [36, 37, 38, 39, 40, 41, 42, 43],
+    // "rate": 5,
+    // "sex": "male",
+    // "color": "white",
+    "imageUrl": "https://cdn-img.thepoizon.ru/pro-img/cut-img/20250611/96da271a7f3e429c93d0673f5b0c6272.jpg?x-oss-process=image/resize,s_720/format,webp"
+  
   },
   {
-    id: 4,
-    imageUrl: shoe4Img,
-    title: "Le Sneakers",
-    //rate: 5,
-    price: 120,
-    //discount: 0 
+   "id": 4,
+    "title": "Puma X Aka Boku Future Rider",
+    "price": 250,
+    // "size": [39, 40, 41, 42, 43, 44, 45],
+    // "rate": 4,
+    // "sex": "male",
+    // "color": "beige",
+    "imageUrl": "https://sneaker-head.by/uploads/Goods/5559/GnL0zUwS5HwtSfj4L40q.jpg"
+ 
   }
 ]
 
@@ -204,12 +210,12 @@ export const COLOURS: Colour[] = [
   }
 ]
 
-
-interface Option {
+type Option = {
   id: number;
   name: string;
   value: string;
 }
+
 
 export const OPTIONS: Option[] = [
   {
