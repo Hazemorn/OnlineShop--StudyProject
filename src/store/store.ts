@@ -1,10 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import filterSlice from './slices/filterSlicer'
-import sortSlice from './slices/sortSlicer'
+import filterReducer from './slices/filterSlicer'
 
-const rootReducer = combineReducers({
-    filterSlice,
-    sortSlice
+const rootReducer = combineReducers({//old
+    filterReducer
 })
 
 export const store = configureStore({

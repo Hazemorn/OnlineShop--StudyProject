@@ -2,12 +2,12 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Item } from "../types/types";
 import type { AxiosResponse } from "axios";
 
-type FilterResponse = {
+interface FilterResponse {
   status: number;
   message: string;
 };
 
-type InitData = {
+interface InitData {
   items: Item[];
   page: number;
   sort: string;
@@ -44,23 +44,28 @@ export const filterSlice = createSlice({
       state.isLoading = true;
     },
     setSort(state, action: PayloadAction<string | null>) {
-        state.color = action.payload;
+        state.sort = action.payload;
         state.page = 1;
+        console.log(state.sort);
     },
     setSize(state, action: PayloadAction<number | null>) {
       state.size = action.payload;
       state.page = 1;
+      console.log(state.size);
     },
     setColor(state, action: PayloadAction<string | null>) {
       state.color = action.payload;
       state.page = 1;
+      console.log(state.color);
     },
     setSex(state, action: PayloadAction<string>) {
       state.sex = action.payload;
       state.page = 1;
+      console.log(state.sex);
     },
     setPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
+      console.log(state.page);
     },
     setSearchValue(state, action: PayloadAction<string>) {
         state.searchValue = action.payload;

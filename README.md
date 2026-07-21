@@ -19,6 +19,7 @@ Online shop project
 ## ⏳ In Progress (Roadmap)
 
 - [ ] Add animation.
+- [ ] Fix filtering (MockApi issue).
 - [ ] Mobile and tablet adaptive
 - [ ] Optimize and refactor CSS code for better maintainability.
 - [ ] Code Splitting, React Loadable, useWhyDidYouUpdate
