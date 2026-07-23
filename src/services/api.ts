@@ -3,34 +3,52 @@ import type { AxiosResponse } from "axios";
 import type { Item } from "../store/types/types";
 
 const apiURL = import.meta.env.VITE_API_URL;
-const limit = 8;
+export const limit = 8;
+
+interface FilteredProductsResponse {
+  res: AxiosResponse<Item[]>;
+  hasActiveFilters: boolean;
+}
 
 interface FetchFilterParams {
     page: number;
     sort?: string;
     searchValue?: string;
-    size?: number | null;
+    size?: string | null;//number
     color?: string | null;
-    sex?: string;
+    sex?: number;//string
   }
   
 export default class FilterService {
-  static getFilteredProducts({
+  static async getFilteredProducts({
     page,
     sort,
     searchValue,
     size,
     color,
     sex
-  }: FetchFilterParams): Promise<AxiosResponse<Item[]>> {
+  }: FetchFilterParams): Promise<FilteredProductsResponse> {
     const sortQuery = sort ? `&sortBy=price&order=${sort}` : "";
     const searchQuery = searchValue ? `&search=${searchValue}` : "";
-    const sizeQuery = size ? `&size=${size}` : "";
+    const sizeQuery = size ? `&search=${size}` : "";//`&size=${size}`
     const colorQuery = color ? `&color=${color}` : "";
-    const sexQuery = sex && sex !== 'both' ? `&sex=${sex}` : ""; 
-  
-    const url = `${apiURL}?page=${page}&limit=${limit}${sortQuery}${searchQuery}${sizeQuery}${colorQuery}${sexQuery}`;
-    return axios.get(url);
+    const sexQuery = sex && sex !== 1 ? `&sex=${sex}` : ""; //'both'
+
+    const hasActiveFilters = Boolean(sort || searchValue || size || color || (sex && sex !== 1));//'both'
+    const paginationQuery = hasActiveFilters ? "" : `?page=${page}&limit=${limit}`;
+    
+    const queryParams = [paginationQuery, sortQuery, searchQuery, sizeQuery, colorQuery, sexQuery]
+    .filter(Boolean)
+    .join("");
+    const separator = queryParams.startsWith("&") ? "?" : "";
+    const cleanParams = queryParams.startsWith("&") ? queryParams.slice(1) : queryParams;
+
+    const url = `${apiURL}${separator}${cleanParams}`;
+    const res = await axios.get(url);
+    return {
+      res,
+      hasActiveFilters
+    };
   }
 }
 

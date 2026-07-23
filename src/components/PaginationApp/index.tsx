@@ -4,12 +4,14 @@ interface PaginationProps {
   currentPage?: number;
   onChangePage?: (page: number) => void;
   pageCount?: number;
+  disable?: boolean;
 }
 
 const PaginationApp = ({
   currentPage = 1,
   onChangePage = () => {},
   pageCount = 3,
+  disable
 }: PaginationProps) => {
   return (
     <div className={s.root}>
@@ -37,10 +39,10 @@ const PaginationApp = ({
       })} */}
 
         <button
-          disabled={currentPage === pageCount}
+          disabled={currentPage === pageCount || disable}
           onClick={() => onChangePage(currentPage + 1)}
           className={s.arrow}
-          style={{ color: currentPage === pageCount ? 'var(--greyLite)' : 'var(--black)'}}
+          style={{ color: currentPage === pageCount || disable ? 'var(--greyLite)' : 'var(--black)'}}
         >
           {">"}
         </button>

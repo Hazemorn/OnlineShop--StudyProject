@@ -15,13 +15,19 @@ import PaginationApp from "../../components/PaginationApp";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchCurrentFilter } from "../../store/thunks/fetchFilter";
+import { limit } from "../../services/api";
 
 
 const Catalog = () => {
   const dispatch = useAppDispatch();
-  const {sort, isLoading, items, page, size, color, sex, searchValue} = useAppSelector(state => state.filterReducer)
+  const {sort, isLoading, items, page, size, color, sex, searchValue, hasActiveFilters, response} = useAppSelector(state => state.filterReducer)
 
   const [dropDown, setDropDown] = useState<boolean>(false);
+
+  const isClientPagination = items.length > 8;
+  const displayedItems = isClientPagination ? items.slice((page - 1) * 8, page * 8) : items;
+
+  // const pageCount = isClientPagination ? Math.ceil(items.length / 8) : Math.ceil(totalCount / 8);
 
   //   const filteredGoods = useMemo(() => {
   //     return GOODS.filter((item) => {
@@ -33,8 +39,7 @@ const Catalog = () => {
   useEffect(() => {
     dispatch(fetchCurrentFilter(page, sort, searchValue, size, color, sex));
   }, [page, sort, searchValue, size, color, sex, dispatch]);
-
-
+  
   return (
     <div className={s.catalog}>
       <div className={s.catalog__wrapper}>
@@ -60,15 +65,15 @@ const Catalog = () => {
                   ? [...new Array(8)].map((_, index) => (
                       <Skeleton key={index} />
                     ))
-                  : //findShoes
-                    items.map((item) => <CardItem key={item.id} {...item} />)}
+                  : response.status === 404 ? <div className={s.content__no_result}><h2>No result</h2></div>:displayedItems.map((item) => <CardItem key={item.id} {...item} />)}
               </div>
             }
           />
           <PaginationApp
             currentPage={page}
             onChangePage={(p) => dispatch(setPage(p))}
-            pageCount={2}
+            pageCount={2}//!
+            disable={hasActiveFilters ? items.length <= limit : false}
           />
         </div>
       </div>

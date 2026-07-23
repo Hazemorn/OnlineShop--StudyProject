@@ -11,7 +11,7 @@ const Filter = () => {
   const filterReset = () => {
     dispatch(setSize(null));
     dispatch(setColor(null));
-    dispatch(setSex("both"));
+    dispatch(setSex(1));//"both"
   }
   return ( 
 
@@ -33,8 +33,8 @@ const Filter = () => {
           {SIZES.map((sz) => (
             <li
               key={sz.id}
-              onClick={() => dispatch(setSize(size === sz.size ? null : sz.size))}
-              className={size === sz.size ? s.active : ""}
+              onClick={() => dispatch(setSize(size === sz.value ? '' : sz.value))} //null
+              className={size === sz.value ? s.active : ""}
             >
               {sz.size}
             </li>
@@ -60,8 +60,8 @@ const Filter = () => {
           {SEXES.map((sx) => (
             <li
               key={sx.id}
-              onClick={() => dispatch(setSex(sx.name))}
-              className={sex === sx.name ? s.active : ""}
+              onClick={() => dispatch(setSex(sx.id))}
+              className={sex === sx.id ? s.active : ""}
             >
               {sx.name}
             </li>

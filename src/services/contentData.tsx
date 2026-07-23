@@ -119,59 +119,59 @@ export const GOODS: Good[] = [
 interface Size {
   id: number;
   size: number;
-  available: boolean;
+  value: string;
 }
 
 export const SIZES: Size[] = [
   {
     id: 1,
     size: 36,
-    available: false,
+    value: '36',
   },
   {
     id: 2,
     size: 37,
-    available: true,
+    value: '37',
   },
   {
     id: 3,
     size: 38,
-    available: true,
+    value: '38',
   },
   {
     id: 4,
     size: 39,
-    available: true,
+    value: '39',
   },
   {
     id: 5,
     size: 40,
-    available: true,
+    value: '40',
   },
   {
     id: 6,
     size: 41,
-    available: true,
+    value: '41',
   },
   {
     id: 7,
     size: 42,
-    available: true,
+    value: '42',
   },
   {
     id: 8,
     size: 43,
-    available: true,
+    value: '43',
   },
   {
     id: 9,
     size: 44,
-    available: true,
+    value: '44',
   },
   {
     id: 10,
     size: 45,
-    available: false,
+    value: '45',
   }
 
 ]

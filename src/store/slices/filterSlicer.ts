@@ -1,26 +1,40 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Item } from "../types/types";
-import type { AxiosResponse } from "axios";
 
 interface FilterResponse {
   status: number;
   message: string;
-};
+}
+
+interface FetchSuccessPayload {
+  items: Item[];
+  status: number;
+  message: string;
+  hasActiveFilters: boolean
+  //totalCount: number;
+}
+
+interface FetchErrorPayload {
+  status: number;
+  message: string;
+}
 
 interface InitData {
   items: Item[];
   page: number;
   sort: string;
-  searchValue: string;
-  size: number;
-  setSort: string;
-  color: string;
-  sex: string;
+  searchValue: string; 
+  size: string | null;//number
+  setSort: string | null;
+  color: string | null;
+  sex: number;//string
   isLoading: boolean;
+  hasActiveFilters: boolean;
+  //totalCount: number;
   response: FilterResponse;
 };
 
-export const initFilter: InitData = {
+const initFilter: InitData = {
   items: [],
   page: 1,
   sort: "",
@@ -28,8 +42,10 @@ export const initFilter: InitData = {
   size: null,
   setSort: "",
   color: null,
-  sex: "both",
-  isLoading: false, //true
+  sex: 1,
+  isLoading: false, 
+  hasActiveFilters: false,
+  //totalCount: 0,
   response: {
     status: 0,
     message: "",
@@ -48,7 +64,7 @@ export const filterSlice = createSlice({
         state.page = 1;
         console.log(state.sort);
     },
-    setSize(state, action: PayloadAction<number | null>) {
+    setSize(state, action: PayloadAction<string | null>) {
       state.size = action.payload;
       state.page = 1;
       console.log(state.size);
@@ -58,7 +74,7 @@ export const filterSlice = createSlice({
       state.page = 1;
       console.log(state.color);
     },
-    setSex(state, action: PayloadAction<string>) {
+    setSex(state, action: PayloadAction<number>) {
       state.sex = action.payload;
       state.page = 1;
       console.log(state.sex);
@@ -71,19 +87,23 @@ export const filterSlice = createSlice({
         state.searchValue = action.payload;
         state.page = 1; 
     },
-    fetchFilterSuccess(state, action: PayloadAction<AxiosResponse<Item[]>>) {
+    fetchFilterSuccess(state, action: PayloadAction<FetchSuccessPayload>) {
       state.isLoading = false;
-      state.items = action.payload.data;
+      state.items = action.payload.items;
+      state.hasActiveFilters = action.payload.hasActiveFilters;
+      //console.log(state.hasActiveFilters);
+      //state.totalCount = action.payload.totalCount;
+      //console.log(state.totalCount);
       state.response = {
         status: action.payload.status,
-        message: action.payload.statusText,
+        message: action.payload.message,
       };
     },
-    fetchFilterError(state, action: PayloadAction<AxiosResponse<Item[]>>) {
+    fetchFilterError(state, action: PayloadAction<FetchErrorPayload>) {
       state.isLoading = false;
       state.response = {
         status: action.payload.status,
-        message: action.payload.statusText,
+        message: action.payload.message,
       };
     },
   },
