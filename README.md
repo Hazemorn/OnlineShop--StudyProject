@@ -3,7 +3,7 @@
 ---
 
 ## 📝 Description
-Online shop project
+Online shoe store built with React, TypeScript, and Redux Toolkit. This project simulates a real e-commerce platform with dynamic catalog filtering, multi-attribute shopping cart management, and detail product views.
 
 ---
 ## Screencast Catalog Filter
