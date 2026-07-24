@@ -6,6 +6,14 @@
 Online shop project
 
 ---
+## Screencast Catalog Filter
+https://github.com/user-attachments/assets/fcac4d77-5466-4044-a301-20c097118e66
+
+---
+## Screencast Cart
+https://github.com/user-attachments/assets/c8b744a7-34aa-42a8-a10a-72a01ba88757
+
+---
 
 ## 🛠️ Tech Stack
 - React Vite
