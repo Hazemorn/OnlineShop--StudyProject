@@ -19,6 +19,7 @@ Online shop project
 ## ⏳ In Progress (Roadmap)
 
 - [ ] Add animation.
+- [ ] Add payment.
 - [ ] Fix filtering (MockApi issue).
 - [ ] Add tooltips
 - [ ] Mobile and tablet adaptive

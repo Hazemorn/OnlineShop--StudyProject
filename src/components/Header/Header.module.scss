@@ -7,6 +7,12 @@
         width: 100%;
         max-width: 500px;
         @include flex-hybrid(space-between, center);
+        a{
+            &:global(.active) {
+                padding-bottom: 5px;
+                border-bottom: 1px solid var(--black);
+            }
+        }
     }
     &__burger {
         cursor: pointer;
@@ -14,6 +20,27 @@
     }
     &__trolley {
         cursor: pointer;
+        max-width: 200px;
+        &__content {
+            border: 1px solid var(--grey);
+            border-radius: 15px;
+            padding: 5px 15px;
+            @include flex-hybrid(space-between, center);
+            flex-direction: row;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            &:hover {
+                transform: translateY(-2px); 
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+            }
+            h4 {
+                width: 85px;
+            }
+            span {
+                width: 28px; 
+            }
+        }
+
     }
 }
 

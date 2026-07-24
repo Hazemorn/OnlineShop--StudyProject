@@ -1,72 +1,14 @@
-import {useMemo, useState} from 'react';
-//import Product from '../Product/Product'
+//import {useMemo, useState} from 'react';
 import s from './Cart.module.scss';
 import CartFooter from './CartFooter/CartFooter';
 import CartHeader from './CartHeader/CartHeader';
-// import { products } from '../../store/data';
-// import type { IProduct } from '../../store/data';
+import { useAppSelector } from '../../hooks/redux';
+import CartGood from './CartGood/CartGood'
 
 const Cart: React.FC = () =>  {
-
-    // const [cart, setCart] = useState<IProduct[]>(products);
-
-    // interface ITotal {
-    //     count: number;
-    //     totalPrice: number;
-    // }
-
-    // const total = useMemo<ITotal>(() => {
-    //     return {
-    //         count: cart.reduce((acc, curr) => acc + curr.quantity, 0),
-    //         totalPrice: cart.reduce((acc, curr) => acc + curr.totalPrice, 0),
-    //     };
-    // }, [cart]);
-
-    // const deleteProduct = (id: number): void => {
-    //     setCart((prevCart) => prevCart.filter((item) => id !== item.id ));
-    // };
-
-    // const increment = (id: number): void => {
-    //     setCart((prevCart) => {
-    //         return prevCart.map(item =>{
-    //             if(item.id === id){
-    //                 return { 
-    //                     ...item,
-    //                     quantity: item.quantity + 1,
-    //                     totalPrice: (item.quantity + 1) * item.price,    
-    //                 }
-    //             } 
-    //             return item
-    //         });
-    //     });
-    // }
-      
-    // const decrement = (id: number):void => {
-    //     setCart((prevCart) => {
-    //         return prevCart.map(item =>{
-    //             if(item.id === id){
-    //                 return { 
-    //                     ...item,
-    //                     quantity: item.quantity <= 1 ? 1 : item.quantity - 1,
-    //                     totalPrice: item.quantity * item.price,    
-    //                 }
-    //             } 
-    //             return item
-    //         });
-    //     });
-    //}
-
-    // const changeValue = (id: number, value: string):void => {
-    //     let validatedString = value;
-    //     if (validatedString.length > 3) {
-    //         validatedString = validatedString.slice(0, 3);
-    //     }
-    //     let valueNumber = Number(validatedString);
-
-    //     if (valueNumber > 100) {
-    //         valueNumber = 100;
-    //     }
-
+    //const dispatch = useAppDispatch();
+    const { items , totalPrice, totalCount} = useAppSelector(state => state.cartReducer);
+ 
     //     setCart((prevCart) => {
 
     //         const finalQuantity = validatedString === '' ? 1 : valueNumber;
@@ -95,11 +37,12 @@ const Cart: React.FC = () =>  {
             <div className={s.section_cart__body}>
                 <div className='container'>
                     <CartHeader />
-                    {/* {cart.map((item) =>
-                        <Product key={item.id} item={item} deleteProduct={deleteProduct} increment={increment} decrement={decrement} changeValue={changeValue}/>
-                    )} */}
-                    {/* <CartFooter count={20} totalPrice={10}/> */}
-                    {/* //total={20}/> */}
+                    {items.length > 0 ? items.map((item) =>
+                        <CartGood key={`${item.id}-${item.size}`} item={item} />
+                    ):
+                    <h3>The cart is empty</h3>
+                    }
+                     <CartFooter totalCount={totalCount} totalPrice={totalPrice}/> 
                 </div> 
             </div>
         </section>

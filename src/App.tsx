@@ -10,6 +10,7 @@ import Product from "./pages/Product/Product";
 import TermsConditions from "./pages/TermsConditions/TermsConditions";
 import Privacy from "./pages/Privacy/Privacy";
 import NotFoundBlock from "./components/NotFoundBlock";
+import ItemDetail from "./pages/ItemDetail/ItemDetail";
 
 function App() {
   const location = useLocation()
@@ -32,6 +33,7 @@ function App() {
           <Route path="product" element={<Product/>}/>
           <Route path="privacy" element={<Privacy/>}/>
           <Route path="terms&conditions" element={<TermsConditions/>}/>
+          <Route path="details" element={<ItemDetail/>}/>
           <Route path="*" element={<NotFoundBlock/>}/>
         </Routes>
         <Footer/>

@@ -62,26 +62,26 @@ export const filterSlice = createSlice({
     setSort(state, action: PayloadAction<string | null>) {
         state.sort = action.payload;
         state.page = 1;
-        console.log(state.sort);
+        //console.log(state.sort);
     },
     setSize(state, action: PayloadAction<string | null>) {
       state.size = action.payload;
       state.page = 1;
-      console.log(state.size);
+      //console.log(state.size);
     },
     setColor(state, action: PayloadAction<string | null>) {
       state.color = action.payload;
       state.page = 1;
-      console.log(state.color);
+      //console.log(state.color);
     },
     setSex(state, action: PayloadAction<number>) {
       state.sex = action.payload;
       state.page = 1;
-      console.log(state.sex);
+      //console.log(state.sex);
     },
     setPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
-      console.log(state.page);
+      //console.log(state.page);
     },
     setSearchValue(state, action: PayloadAction<string>) {
         state.searchValue = action.payload;

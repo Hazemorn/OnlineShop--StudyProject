@@ -48,7 +48,7 @@ const Filter = () => {
             <li
               key={c.id}
               onClick={() => dispatch(setColor(color === c.colour.slice(6, -1) ? null : c.colour.slice(6, -1)))}
-              className={color === c.colour.slice(6, -1) ? s.active : ""}
+              className={`${color === c.colour.slice(6, -1) ? s.active : ""} ${s.border}`}
               style={{ backgroundColor: c.colour }}
             ></li>
           ))}

@@ -1,20 +1,24 @@
 import s from './CartFooter.module.scss'
+import trashCanImg from '../../../assets/icons/trash-can.svg';
+import { useAppDispatch } from '../../../hooks/redux';
+import { clearItems } from '../../../store/slices/cartSlicer';
 
-interface ITotal {
-    count: number;
+interface FooterProps {
+    totalCount: number;
     totalPrice: number;
 }
 
-interface totalProps {
-    total: ITotal;
-}
+const CartFooter: React.FC<FooterProps> = ({...total}) => {
+    const dispatch = useAppDispatch();
+    const {totalCount, totalPrice} = total;
 
-const CartFooter: React.FC<totalProps> = ({total}) => {
-    const {count, totalPrice} = total;
+    const isDisabled = totalCount === 0;
     return ( 
         <footer className={s.cart_footer}>
-            <div className={s.cart_footer__count}>{count} {count === 1 ? 'item' : 'items'}</div>
-            <div className={s.cart_footer__cost}>{totalPrice} BYN</div>
+            <button disabled={isDisabled}>Buy Now</button>
+            <div className={s.cart_footer_garbage} onClick={() => dispatch(clearItems())}><img src={trashCanImg} alt='trashCan' loading='lazy'/></div>
+            <div className={s.cart_footer__count}>{totalCount} {(totalCount === 1 || totalCount === 0) ? 'item' : 'items'}</div>
+            <div className={s.cart_footer__cost}>$ {totalPrice}</div>
         </footer>
      );
 }

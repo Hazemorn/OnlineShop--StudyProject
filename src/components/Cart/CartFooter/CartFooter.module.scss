@@ -1,20 +1,34 @@
 .cart_footer {
-    background-color: rgba(234, 239, 242, 1);
+    background-color: var(--greyLite);
     padding: 19px 0px;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.2;
 
     display: grid;
-    grid-template-columns: 2fr repeat(3, 3fr) 1fr;
+    grid-template-columns: 1fr repeat(2, 3fr) repeat(2, 1.5fr) 0.2fr;
     column-gap: 30px;
     place-items: center;
     &__count {
-        grid-column:3/4;
+        grid-column:4/5;
     }
     &__cost {
-        grid-column: 4/5;
-
+        grid-column: 5/6;
+    }
+    button {
+        grid-column:1/3;
+        color: var(--black);
+        &:disabled {
+            color: var(--grey);
+            cursor: not-allowed; 
+        }
+        
+    }
+    &_garbage {
+        cursor: pointer;
+        img {
+            max-width: 25px;
+        }
     }
 
     @media (max-width: 768px) {

@@ -6,7 +6,7 @@
     border-radius: 15px;
     margin-bottom: 20px;
     @include flex-dir(column);
-    gap:15px;
+    gap: 15px;
     &__header {
         @include flex-hybrid(space-between, center);
         img {
@@ -33,7 +33,7 @@
         @include flex-hybrid(center, center);
         &.active {
             border: 3px solid var(--black); 
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); 
+            box-shadow: 0 0 4px var(--blackShadow); 
         }
     }
 }
@@ -44,14 +44,22 @@
     li {
         padding: 5px;
         border: 1px solid var(--grey);
-        border-radius: 50%;
+        border-radius: 15px;
         width: 70px; 
         height: 40px;
         cursor: pointer;
         @include flex-hybrid(center, center);
         &.active {
             border: 3px solid var(--black); 
-            box-shadow: 0 0 4px rgba(0, 0, 0, 0.4); 
         }
     }
 }
+// .border {
+//     padding: 15px;
+//     border: 1px solid var(--grey);
+//     border-radius: 50%;
+//     &.active {
+//         border: 3px solid var(--black); 
+//         box-shadow: 0 0 4px var(--blackShadow); 
+//     }
+// }

@@ -2,6 +2,9 @@
 
 .cardItem {
     max-width: 295px;
+    &__wrapper {
+        cursor: pointer;
+    }
     &__text {
         @include flex-hybrid(none, start);
         flex-direction: column;

@@ -5,9 +5,10 @@ import s from './Header.module.scss';
 import trolleyImg from '../../assets/icons/trolley.svg';
 import burgerImg from '../../assets/icons/burger.svg';
 import closeImg from '../../assets/icons/close.svg';
+import { useAppSelector } from '../../hooks/redux';
 
 const Header = () => {
-
+    const { totalPrice, totalCount} = useAppSelector(state => state.cartReducer);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const location = useLocation();
 
@@ -31,13 +32,17 @@ const Header = () => {
                 <NavLink to={"/contact"}>
                     Contact Us
                 </NavLink>
-                <NavLink to={
+                {/* <NavLink to={
                     "/#reviews"
-                }>Reviews</NavLink>
+                }>Reviews</NavLink> */}
             </div>
             <div className={s.header__trolley}>
                 <NavLink to={"/cart"}>
-                    <img src={trolleyImg} alt='trolleyImg' loading='lazy'/>
+                    <div className={s.header__trolley__content}>
+                        <h4>$ {totalPrice}</h4>
+                        <img src={trolleyImg} alt='trolleyImg' loading='lazy'/>
+                        <span>{totalCount}</span>
+                    </div>
                 </NavLink>
             </div>
             <div className={`${s.header__burger}`}>

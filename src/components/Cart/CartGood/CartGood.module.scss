@@ -1,0 +1,38 @@
+@use '../.././../styles/mixins.scss' as *;
+
+.good {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, 3fr) repeat(2, 1.5fr) 0.5fr;
+    //column-gap: 30px;
+    place-items: center;
+    &__img {
+        width: 180px;
+    }
+    &__option {
+        @include flex-hybrid (space-around, center);
+        flex-direction: column;
+    }
+
+    &__btn_up {
+        transform: rotate(90deg);
+    }
+    &__btn_down {
+        transform: rotate(90deg);
+    }
+    &__count {
+        max-width: 100px;
+        width: 100%;
+        &_wrapper {
+            @include flex-hybrid(space-between, center);
+            padding: 5px 10px;
+            flex-direction: row;
+            border: 1px solid var(--black); 
+            border-radius: 15px;
+            
+        }
+    }
+    &__garbage {
+        max-width: 25px;
+        cursor:pointer;
+    }
+}
